@@ -1,0 +1,4 @@
+.vagrant
+*.gz
+*.bz2
+*.tar.*
