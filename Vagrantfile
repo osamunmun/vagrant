@@ -13,6 +13,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = "centos-6.4"
 
   config.omnibus.chef_version = :latest
+  config.berkshelf.enable = true
 
   # The url from where the 'config.vm.box' box will be fetched if it
   # doesn't already exist on the user's system.
@@ -46,13 +47,13 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # backing providers for Vagrant. These expose provider-specific options.
   # Example for VirtualBox:
   #
-  # config.vm.provider :virtualbox do |vb|
-  #   # Don't boot with headless mode
-  #   vb.gui = true
-  #
-  #   # Use VBoxManage to customize the VM. For example to change memory:
-  #   vb.customize ["modifyvm", :id, "--memory", "1024"]
-  # end
+  config.vm.provider :virtualbox do |vb|
+    # Don't boot with headless mode
+    vb.gui = false
+
+    # Use VBoxManage to customize the VM. For example to change memory:
+    vb.customize ["modifyvm", :id, "--memory", "2048"]
+  end
   #
   # View the documentation for the provider you're using for more
   # information on available options.
@@ -84,16 +85,18 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # path, and data_bags path (all relative to this Vagrantfile), and adding
   # some recipes and/or roles.
   #
-  # config.vm.provision :chef_solo do |chef|
-  #   chef.cookbooks_path = "../my-recipes/cookbooks"
-  #   chef.roles_path = "../my-recipes/roles"
-  #   chef.data_bags_path = "../my-recipes/data_bags"
-  #   chef.add_recipe "mysql"
-  #   chef.add_role "web"
-  #
-  #   # You may also specify custom JSON attributes:
-  #   chef.json = { :mysql_password => "foo" }
-  # end
+  config.vm.provision :chef_solo do |chef|
+    chef.run_list = ['yum-update',
+                     'mysql']
+    # chef.cookbooks_path = "../my-recipes/cookbooks"
+    # chef.roles_path = "../my-recipes/roles"
+    # chef.data_bags_path = "../my-recipes/data_bags"
+    # chef.add_recipe "mysql"
+    # chef.add_role "web"
+
+    # You may also specify custom JSON attributes:
+    chef.json = { :mysql_password => ENV['MYSQL_PASSWD'] }
+  end
 
   # Enable provisioning with chef server, specifying the chef server URL,
   # and the path to the validation key (relative to this Vagrantfile).

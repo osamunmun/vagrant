@@ -2,3 +2,6 @@
 *.gz
 *.bz2
 *.tar.*
+.env
+.bundle
+vendor
