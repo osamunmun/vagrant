@@ -3,6 +3,9 @@
     "mysql": {
       "locked_version": "3.0.12"
     },
+    "nginx": {
+      "locked_version": "2.0.4"
+    },
     "yum-update": {
       "path": "./site-cookbooks/yum-update"
     },
@@ -19,6 +22,18 @@
     },
     "apt": {
       "locked_version": "2.3.0"
+    },
+    "bluepill": {
+      "locked_version": "2.3.0"
+    },
+    "rsyslog": {
+      "locked_version": "1.9.0"
+    },
+    "ohai": {
+      "locked_version": "1.1.12"
+    },
+    "runit": {
+      "locked_version": "1.4.0"
     },
     "yum": {
       "locked_version": "2.4.4"
