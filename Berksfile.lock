@@ -14,6 +14,17 @@
       "git": "https://github.com/treasure-data/chef-td-agent.git",
       "ref": "e59c017560cebc689f23827c368e5be9c6b2b77d"
     },
+    "elasticsearch": {
+      "locked_version": "0.3.7"
+    },
+    "kibana": {
+      "locked_version": "1.2.0",
+      "git": "https://github.com/lusis/chef-kibana.git",
+      "ref": "0a7c04d8b21fbc747245e20409f4466f4b3a87c8"
+    },
+    "git": {
+      "locked_version": "2.7.0"
+    },
     "openssl": {
       "locked_version": "1.1.0"
     },
@@ -37,6 +48,33 @@
     },
     "yum": {
       "locked_version": "2.4.4"
+    },
+    "xml": {
+      "locked_version": "1.2.0"
+    },
+    "java": {
+      "locked_version": "1.16.0"
+    },
+    "windows": {
+      "locked_version": "1.11.0"
+    },
+    "chef_handler": {
+      "locked_version": "1.1.4"
+    },
+    "aws": {
+      "locked_version": "1.0.0"
+    },
+    "monit": {
+      "locked_version": "0.7.1"
+    },
+    "ark": {
+      "locked_version": "0.4.0"
+    },
+    "apache2": {
+      "locked_version": "1.8.4"
+    },
+    "dmg": {
+      "locked_version": "2.0.8"
     }
   }
 }

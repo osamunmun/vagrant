@@ -16,3 +16,9 @@ execute "yum-update" do
   command "yum -y update"
   action :run
 end
+
+%w[zsh vim mlocate httpd].each do |pkg|
+  yum_package pkg do
+    action :install
+  end
+end
